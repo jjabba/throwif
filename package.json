@@ -1,0 +1,32 @@
+{
+  "name": "throwif",
+  "version": "0.9.0",
+  "description": "Agressive js parameter checking",
+  "main": "throwif.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjabba/throwif.git"
+  },
+  "keywords": [
+    "javascript",
+    "parameter",
+    "argument",
+    "verify"
+  ],
+  "author": "Karl Berggren",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jjabba/throwif/issues"
+  },
+  "homepage": "https://github.com/jjabba/throwif#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jasmine": "^2.4.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "jasmine": "^2.5.2"
+  }
+}
