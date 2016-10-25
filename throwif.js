@@ -23,8 +23,8 @@
 
     // This file will function properly as a <script> tag, or a module
     // using CommonJS and NodeJS or RequireJS module formats.  In
-    // Common/Node/RequireJS, the module exports the Throwif API and when
-    // executed as a simple <script>, it creates a Throwif global instead.
+    // Common/Node/RequireJS, the module exports the ThrowIf API and when
+    // executed as a simple <script>, it creates a ThrowIf global instead.
 
     // Montage Require
     if (typeof bootstrap === "function") {
@@ -43,7 +43,7 @@
         if (!ses.ok()) {
             return;
         } else {
-            ses.makeThrowif = definition;
+            ses.makeThrowIf = definition;
         }
 
     // <script>
@@ -52,24 +52,24 @@
         // non-windowed contexts.
         var global = typeof window !== "undefined" ? window : self;
 
-        // Get the `window` object, save the previous Throwif global
-        // and initialize Throwif as a global.
-        var previousThrowif = global.Throwif;
-        global.Throwif = definition();
+        // Get the `window` object, save the previous ThrowIf global
+        // and initialize ThrowIf as a global.
+        var previousThrowIf = global.ThrowIf;
+        global.ThrowIf = definition();
 
-        // Add a noConflict function so Throwif can be removed from the
+        // Add a noConflict function so ThrowIf can be removed from the
         // global namespace.
-        global.Throwif.noConflict = function () {
-            global.Throwif = previousThrowif;
+        global.ThrowIf.noConflict = function () {
+            global.ThrowIf = previousThrowIf;
             return this;
         };
 
     } else {
-        throw new Error("This environment was not anticipated by Throwif. Please file a bug.");
+        throw new Error("This environment was not anticipated by ThrowIf. Please file a bug.");
     }
 
 })(function () {
-var Throwif, version, helper;
+var ThrowIf, version, helper;
 
 version = {
     "major": 0,
@@ -109,7 +109,7 @@ helper = {
     }
 };
 
-Throwif = {
+ThrowIf = {
     /**
      * @description
      * Return the current version of throwif
@@ -159,5 +159,5 @@ Throwif = {
     }
 };
 
-return Throwif;
+return ThrowIf;
 });
