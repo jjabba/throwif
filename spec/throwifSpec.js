@@ -20,6 +20,7 @@ beforeEach(function() {
         'exampleFunction' : function(){
             return "i am a function";
         },
+        'exampleNumber'   : 3.1416,
         'exampleBoolean'  : true,
         'exampleString'   : 'I am a String'
     };
@@ -77,6 +78,7 @@ describe("Testing Throwif", function() {
         expect( function() { Throwif.notArray(data.types['exampleArray']);    }).not.toThrow();
         expect( function() { Throwif.notArray(data.types['exampleObject']);   }).toThrow();
         expect( function() { Throwif.notArray(data.types['exampleFunction']); }).toThrow();
+        expect( function() { Throwif.notArray(data.types['exampleNumber']);   }).toThrow();
         expect( function() { Throwif.notArray(data.types['exampleBoolean']);  }).toThrow();
         expect( function() { Throwif.notArray(data.types['exampleString']);   }).toThrow();
     });
@@ -88,6 +90,7 @@ describe("Testing Throwif", function() {
         expect( function() { Throwif.notObject(data.types['exampleArray']);    }).not.toThrow(); // array's are also objects
         expect( function() { Throwif.notObject(data.types['exampleObject']);   }).not.toThrow();
         expect( function() { Throwif.notObject(data.types['exampleFunction']); }).toThrow();
+        expect( function() { Throwif.notObject(data.types['exampleNumber']);   }).toThrow();
         expect( function() { Throwif.notObject(data.types['exampleBoolean']);  }).toThrow();
         expect( function() { Throwif.notObject(data.types['exampleString']);   }).toThrow();
     });
@@ -99,8 +102,21 @@ describe("Testing Throwif", function() {
         expect( function() { Throwif.notFunction(data.types['exampleArray']);    }).toThrow();
         expect( function() { Throwif.notFunction(data.types['exampleObject']);   }).toThrow();
         expect( function() { Throwif.notFunction(data.types['exampleFunction']); }).not.toThrow();
+        expect( function() { Throwif.notFunction(data.types['exampleNumber']);   }).toThrow();
         expect( function() { Throwif.notFunction(data.types['exampleBoolean']);  }).toThrow();
         expect( function() { Throwif.notFunction(data.types['exampleString']);   }).toThrow();
+    });
+
+    // throw if not Number
+    it("should handle functions as param", function() {
+        expect( Throwif.notString ).toBeDefined();
+
+        expect( function() { Throwif.notNumber(data.types['exampleArray']);    }).toThrow();
+        expect( function() { Throwif.notNumber(data.types['exampleObject']);   }).toThrow();
+        expect( function() { Throwif.notNumber(data.types['exampleFunction']); }).toThrow();
+        expect( function() { Throwif.notNumber(data.types['exampleBoolean']);  }).toThrow();
+        expect( function() { Throwif.notNumber(data.types['exampleNumber']);   }).not.toThrow();
+        expect( function() { Throwif.notNumber(data.types['exampleString']);   }).toThrow();
     });
 
     // throw if not boolean
@@ -110,6 +126,7 @@ describe("Testing Throwif", function() {
         expect( function() { Throwif.notBoolean(data.types['exampleArray']);    }).toThrow();
         expect( function() { Throwif.notBoolean(data.types['exampleObject']);   }).toThrow();
         expect( function() { Throwif.notBoolean(data.types['exampleFunction']); }).toThrow();
+        expect( function() { Throwif.notBoolean(data.types['exampleNumber']);   }).toThrow();
         expect( function() { Throwif.notBoolean(data.types['exampleBoolean']);  }).not.toThrow();
         expect( function() { Throwif.notBoolean(data.types['exampleString']);   }).toThrow();
     });
@@ -122,6 +139,7 @@ describe("Testing Throwif", function() {
         expect( function() { Throwif.notString(data.types['exampleObject']);   }).toThrow();
         expect( function() { Throwif.notString(data.types['exampleFunction']); }).toThrow();
         expect( function() { Throwif.notString(data.types['exampleBoolean']);  }).toThrow();
+        expect( function() { Throwif.notString(data.types['exampleNumber']);   }).toThrow();
         expect( function() { Throwif.notString(data.types['exampleString']);   }).not.toThrow();
     });
 });

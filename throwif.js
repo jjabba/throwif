@@ -74,7 +74,7 @@ var ThrowIf, version, helper;
 version = {
     "major": 0,
     "minor": 5,
-    "patch": 0
+    "patch": 1
 }
 
 /* Argument validation helpers */
@@ -147,6 +147,9 @@ ThrowIf = {
     },
     'notObject': function (supposedObject) {
         helper.throwIfTypeofIsNot("object", supposedObject);
+    },
+    'notNumber': function (supposedNumber) {
+        helper.throwIfTypeofIsNot("number", supposedNumber);
     },
     'notDefined': function (supposedlyDefined) {
         helper.throwIfTypeofIs('undefined', supposedlyDefined);
